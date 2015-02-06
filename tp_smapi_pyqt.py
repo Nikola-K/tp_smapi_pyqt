@@ -22,3 +22,25 @@
 # SOFTWARE.
 #
 
+from PyQt4 import QtGui
+import sys
+
+import design
+
+
+class TPSmapiGUI(QtGui.QMainWindow, design.Ui_MainWindow):
+    # noinspection PyUnresolvedReferences
+    def __init__(self, parent=None):
+        super(TPSmapiGUI, self).__init__(parent)
+        self.setupUi(self)
+
+
+def main():
+    app = QtGui.QApplication(sys.argv)
+    form = TPSmapiGUI()
+    form.show()
+    app.exec_()
+
+
+if __name__ == '__main__':
+    main()
