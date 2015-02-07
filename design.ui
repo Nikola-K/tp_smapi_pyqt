@@ -117,76 +117,6 @@
           </property>
          </widget>
         </item>
-        <item row="1" column="0">
-         <widget class="QLabel" name="label_4">
-          <property name="text">
-           <string>Cycle Count:</string>
-          </property>
-         </widget>
-        </item>
-        <item row="2" column="0">
-         <widget class="QLabel" name="label_5">
-          <property name="text">
-           <string>Current Now:</string>
-          </property>
-         </widget>
-        </item>
-        <item row="3" column="0">
-         <widget class="QLabel" name="label_6">
-          <property name="text">
-           <string>Current Avg.:</string>
-          </property>
-         </widget>
-        </item>
-        <item row="4" column="0">
-         <widget class="QLabel" name="label_7">
-          <property name="text">
-           <string>Power Now:</string>
-          </property>
-         </widget>
-        </item>
-        <item row="5" column="0">
-         <widget class="QLabel" name="label_8">
-          <property name="text">
-           <string>Power Avg.:</string>
-          </property>
-         </widget>
-        </item>
-        <item row="6" column="0">
-         <widget class="QLabel" name="label_9">
-          <property name="text">
-           <string>Last Full Capacity:</string>
-          </property>
-         </widget>
-        </item>
-        <item row="7" column="0">
-         <widget class="QLabel" name="label_10">
-          <property name="text">
-           <string>Remaining Percent:</string>
-          </property>
-         </widget>
-        </item>
-        <item row="8" column="0">
-         <widget class="QLabel" name="label_11">
-          <property name="text">
-           <string>Rem. Running Time:</string>
-          </property>
-         </widget>
-        </item>
-        <item row="9" column="0">
-         <widget class="QLabel" name="label_12">
-          <property name="text">
-           <string>Rem. Charge Time:</string>
-          </property>
-         </widget>
-        </item>
-        <item row="10" column="0">
-         <widget class="QLabel" name="label_13">
-          <property name="text">
-           <string>Remaining Capacity:</string>
-          </property>
-         </widget>
-        </item>
         <item row="0" column="1">
          <widget class="QLabel" name="state">
           <property name="frameShape">
@@ -197,6 +127,13 @@
           </property>
           <property name="alignment">
            <set>Qt::AlignCenter</set>
+          </property>
+         </widget>
+        </item>
+        <item row="1" column="0">
+         <widget class="QLabel" name="label_4">
+          <property name="text">
+           <string>Cycle Count:</string>
           </property>
          </widget>
         </item>
@@ -213,6 +150,13 @@
           </property>
          </widget>
         </item>
+        <item row="2" column="0">
+         <widget class="QLabel" name="label_5">
+          <property name="text">
+           <string>Current Now:</string>
+          </property>
+         </widget>
+        </item>
         <item row="2" column="1">
          <widget class="QLabel" name="current_now">
           <property name="frameShape">
@@ -223,6 +167,13 @@
           </property>
           <property name="alignment">
            <set>Qt::AlignCenter</set>
+          </property>
+         </widget>
+        </item>
+        <item row="3" column="0">
+         <widget class="QLabel" name="label_6">
+          <property name="text">
+           <string>Current Avg.:</string>
           </property>
          </widget>
         </item>
@@ -239,6 +190,13 @@
           </property>
          </widget>
         </item>
+        <item row="4" column="0">
+         <widget class="QLabel" name="label_7">
+          <property name="text">
+           <string>Power Now:</string>
+          </property>
+         </widget>
+        </item>
         <item row="4" column="1">
          <widget class="QLabel" name="power_now">
           <property name="frameShape">
@@ -249,6 +207,13 @@
           </property>
           <property name="alignment">
            <set>Qt::AlignCenter</set>
+          </property>
+         </widget>
+        </item>
+        <item row="5" column="0">
+         <widget class="QLabel" name="label_8">
+          <property name="text">
+           <string>Power Avg.:</string>
           </property>
          </widget>
         </item>
@@ -265,6 +230,13 @@
           </property>
          </widget>
         </item>
+        <item row="6" column="0">
+         <widget class="QLabel" name="label_9">
+          <property name="text">
+           <string>Last Full Capacity:</string>
+          </property>
+         </widget>
+        </item>
         <item row="6" column="1">
          <widget class="QLabel" name="last_full_capacity">
           <property name="frameShape">
@@ -275,6 +247,13 @@
           </property>
           <property name="alignment">
            <set>Qt::AlignCenter</set>
+          </property>
+         </widget>
+        </item>
+        <item row="7" column="0">
+         <widget class="QLabel" name="label_10">
+          <property name="text">
+           <string>Remaining Percent:</string>
           </property>
          </widget>
         </item>
@@ -291,6 +270,13 @@
           </property>
          </widget>
         </item>
+        <item row="8" column="0">
+         <widget class="QLabel" name="label_11">
+          <property name="text">
+           <string>Rem. Running Time:</string>
+          </property>
+         </widget>
+        </item>
         <item row="8" column="1">
          <widget class="QLabel" name="remaining_running_time">
           <property name="frameShape">
@@ -304,6 +290,13 @@
           </property>
          </widget>
         </item>
+        <item row="9" column="0">
+         <widget class="QLabel" name="label_12">
+          <property name="text">
+           <string>Rem. Charge Time:</string>
+          </property>
+         </widget>
+        </item>
         <item row="9" column="1">
          <widget class="QLabel" name="remaining_charge_time">
           <property name="frameShape">
@@ -314,6 +307,13 @@
           </property>
           <property name="alignment">
            <set>Qt::AlignCenter</set>
+          </property>
+         </widget>
+        </item>
+        <item row="10" column="0">
+         <widget class="QLabel" name="label_13">
+          <property name="text">
+           <string>Remaining Capacity:</string>
           </property>
          </widget>
         </item>
