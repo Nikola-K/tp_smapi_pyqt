@@ -2,7 +2,7 @@
 
 # Form implementation generated from reading ui file 'design.ui'
 #
-# Created: Fri Feb  6 22:29:07 2015
+# Created: Sat Feb  7 18:05:45 2015
 #      by: PyQt4 UI code generator 4.11.2
 #
 # WARNING! All changes made in this file will be lost!
@@ -265,12 +265,14 @@ class Ui_MainWindow(object):
         self.label_49.setObjectName(_fromUtf8("label_49"))
         self.horizontalLayout_6.addWidget(self.label_49)
         self.start_charge_slider = QtGui.QSlider(self.groupBox)
+        self.start_charge_slider.setSliderPosition(1)
         self.start_charge_slider.setOrientation(QtCore.Qt.Horizontal)
         self.start_charge_slider.setTickPosition(QtGui.QSlider.TicksBelow)
         self.start_charge_slider.setTickInterval(25)
         self.start_charge_slider.setObjectName(_fromUtf8("start_charge_slider"))
         self.horizontalLayout_6.addWidget(self.start_charge_slider)
         self.start_charge_spinbox = QtGui.QSpinBox(self.groupBox)
+        self.start_charge_spinbox.setMinimum(1)
         self.start_charge_spinbox.setObjectName(_fromUtf8("start_charge_spinbox"))
         self.horizontalLayout_6.addWidget(self.start_charge_spinbox)
         self.verticalLayout_3.addLayout(self.horizontalLayout_6)
@@ -288,6 +290,8 @@ class Ui_MainWindow(object):
         self.stop_charge_slider.setObjectName(_fromUtf8("stop_charge_slider"))
         self.horizontalLayout_5.addWidget(self.stop_charge_slider)
         self.stop_charge_spinbox = QtGui.QSpinBox(self.groupBox)
+        self.stop_charge_spinbox.setMinimum(1)
+        self.stop_charge_spinbox.setMaximum(100)
         self.stop_charge_spinbox.setObjectName(_fromUtf8("stop_charge_spinbox"))
         self.horizontalLayout_5.addWidget(self.stop_charge_spinbox)
         self.verticalLayout_3.addLayout(self.horizontalLayout_5)
@@ -311,6 +315,10 @@ class Ui_MainWindow(object):
         MainWindow.setCentralWidget(self.centralwidget)
 
         self.retranslateUi(MainWindow)
+        QtCore.QObject.connect(self.start_charge_slider, QtCore.SIGNAL(_fromUtf8("valueChanged(int)")), self.start_charge_spinbox.setValue)
+        QtCore.QObject.connect(self.stop_charge_slider, QtCore.SIGNAL(_fromUtf8("valueChanged(int)")), self.stop_charge_spinbox.setValue)
+        QtCore.QObject.connect(self.start_charge_spinbox, QtCore.SIGNAL(_fromUtf8("valueChanged(int)")), self.start_charge_slider.setValue)
+        QtCore.QObject.connect(self.stop_charge_spinbox, QtCore.SIGNAL(_fromUtf8("valueChanged(int)")), self.stop_charge_slider.setValue)
         QtCore.QMetaObject.connectSlotsByName(MainWindow)
 
     def retranslateUi(self, MainWindow):

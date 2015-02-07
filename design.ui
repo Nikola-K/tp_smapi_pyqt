@@ -587,6 +587,9 @@
          </item>
          <item>
           <widget class="QSlider" name="start_charge_slider">
+           <property name="sliderPosition">
+            <number>1</number>
+           </property>
            <property name="orientation">
             <enum>Qt::Horizontal</enum>
            </property>
@@ -599,7 +602,11 @@
           </widget>
          </item>
          <item>
-          <widget class="QSpinBox" name="start_charge_spinbox"/>
+          <widget class="QSpinBox" name="start_charge_spinbox">
+           <property name="minimum">
+            <number>1</number>
+           </property>
+          </widget>
          </item>
         </layout>
        </item>
@@ -632,7 +639,14 @@
           </widget>
          </item>
          <item>
-          <widget class="QSpinBox" name="stop_charge_spinbox"/>
+          <widget class="QSpinBox" name="stop_charge_spinbox">
+           <property name="minimum">
+            <number>1</number>
+           </property>
+           <property name="maximum">
+            <number>100</number>
+           </property>
+          </widget>
          </item>
         </layout>
        </item>
@@ -681,5 +695,70 @@
   </widget>
  </widget>
  <resources/>
- <connections/>
+ <connections>
+  <connection>
+   <sender>start_charge_slider</sender>
+   <signal>valueChanged(int)</signal>
+   <receiver>start_charge_spinbox</receiver>
+   <slot>setValue(int)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>225</x>
+     <y>419</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>343</x>
+     <y>419</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>stop_charge_slider</sender>
+   <signal>valueChanged(int)</signal>
+   <receiver>stop_charge_spinbox</receiver>
+   <slot>setValue(int)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>224</x>
+     <y>452</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>343</x>
+     <y>452</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>start_charge_spinbox</sender>
+   <signal>valueChanged(int)</signal>
+   <receiver>start_charge_slider</receiver>
+   <slot>setValue(int)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>343</x>
+     <y>419</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>225</x>
+     <y>419</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>stop_charge_spinbox</sender>
+   <signal>valueChanged(int)</signal>
+   <receiver>stop_charge_slider</receiver>
+   <slot>setValue(int)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>343</x>
+     <y>452</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>224</x>
+     <y>452</y>
+    </hint>
+   </hints>
+  </connection>
+ </connections>
 </ui>
