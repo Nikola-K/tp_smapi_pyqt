@@ -65,6 +65,7 @@ class TPSmapiGUI(QtGui.QMainWindow, design.Ui_MainWindow):
         self.get_charge_values()
         self.batteryComboBox.currentIndexChanged.connect(self.__change_battery)
         self.btn_reload.clicked.connect(self._reload_values)
+        self.btn_write.clicked.connect(self._write_values)
 
     def _reload_values(self):
         self.get_battery_values()
@@ -83,6 +84,47 @@ class TPSmapiGUI(QtGui.QMainWindow, design.Ui_MainWindow):
                 return input_file.read().rstrip()
         except:
             return default_return
+
+    def _set_value(self, value_key, key_value):
+        base = "/sys/devices/platform/smapi/{}/".format(self.current_battery)
+        try:
+            with open(base + value_key, "w") as output_file:
+                output_file.write(key_value)
+                return True
+        except IOError:
+            return False
+
+    # noinspection PyTypeChecker
+    def _failed_write_msg(self):
+        QtGui.QMessageBox.critical(self, "Error",
+                                   "Failed to write new charging setting values,"
+                                   "use reload button to see current values.\n"
+                                   "Do you have write permissions for '/sys/devices/platform/'?\n"
+                                   "You can try running the tool as root if you aren't already.",
+                                   QtGui.QMessageBox.Ok)
+
+    def _write_values(self):
+        start_threshold = int(self._get_value("start_charge_thresh", 0))
+        stop_threshold = int(self._get_value("stop_charge_thresh", 0))
+        inhibit_charge_min = int(self._get_value("inhibit_charge_minutes", 0))
+        new_start = int(self.start_charge_slider.value())
+        new_stop = int(self.stop_charge_slider.value())
+        new_inhibit = int(self.inhibit_charge_slider.value())
+        print new_start, new_stop, new_inhibit
+
+        if new_start != start_threshold:
+            if not self._set_value("start_charge_thresh", str(new_start)):
+                self._failed_write_msg()
+                return
+
+        if new_stop != stop_threshold:
+            if not self._set_value("stop_charge_thresh", str(new_stop)):
+                self._failed_write_msg()
+                return
+        if new_inhibit != inhibit_charge_min:
+            if not self._set_value("inhibit_charge_minutes", str(new_inhibit)):
+                self._failed_write_msg()
+                return
 
     # noinspection PyTypeChecker
     def get_charge_values(self):
