@@ -2,7 +2,7 @@
 
 # Form implementation generated from reading ui file 'design.ui'
 #
-# Created: Sat Feb  7 18:09:46 2015
+# Created: Sat Feb  7 18:23:12 2015
 #      by: PyQt4 UI code generator 4.11.2
 #
 # WARNING! All changes made in this file will be lost!
@@ -26,7 +26,7 @@ except AttributeError:
 class Ui_MainWindow(object):
     def setupUi(self, MainWindow):
         MainWindow.setObjectName(_fromUtf8("MainWindow"))
-        MainWindow.resize(374, 526)
+        MainWindow.resize(421, 565)
         self.centralwidget = QtGui.QWidget(MainWindow)
         self.centralwidget.setObjectName(_fromUtf8("centralwidget"))
         self.verticalLayout = QtGui.QVBoxLayout(self.centralwidget)
@@ -295,6 +295,37 @@ class Ui_MainWindow(object):
         self.stop_charge_spinbox.setObjectName(_fromUtf8("stop_charge_spinbox"))
         self.horizontalLayout_5.addWidget(self.stop_charge_spinbox)
         self.verticalLayout_3.addLayout(self.horizontalLayout_5)
+        self.label_26 = QtGui.QLabel(self.groupBox)
+        font = QtGui.QFont()
+        font.setPointSize(10)
+        self.label_26.setFont(font)
+        self.label_26.setWordWrap(True)
+        self.label_26.setObjectName(_fromUtf8("label_26"))
+        self.verticalLayout_3.addWidget(self.label_26)
+        self.line_3 = QtGui.QFrame(self.groupBox)
+        self.line_3.setFrameShape(QtGui.QFrame.HLine)
+        self.line_3.setFrameShadow(QtGui.QFrame.Sunken)
+        self.line_3.setObjectName(_fromUtf8("line_3"))
+        self.verticalLayout_3.addWidget(self.line_3)
+        self.horizontalLayout_8 = QtGui.QHBoxLayout()
+        self.horizontalLayout_8.setObjectName(_fromUtf8("horizontalLayout_8"))
+        self.label_27 = QtGui.QLabel(self.groupBox)
+        self.label_27.setObjectName(_fromUtf8("label_27"))
+        self.horizontalLayout_8.addWidget(self.label_27)
+        self.inhibit_charge_slider = QtGui.QSlider(self.groupBox)
+        self.inhibit_charge_slider.setMaximum(120)
+        self.inhibit_charge_slider.setOrientation(QtCore.Qt.Horizontal)
+        self.inhibit_charge_slider.setObjectName(_fromUtf8("inhibit_charge_slider"))
+        self.horizontalLayout_8.addWidget(self.inhibit_charge_slider)
+        self.inhibit_charge_spinbox = QtGui.QSpinBox(self.groupBox)
+        self.inhibit_charge_spinbox.setMaximum(120)
+        self.inhibit_charge_spinbox.setObjectName(_fromUtf8("inhibit_charge_spinbox"))
+        self.horizontalLayout_8.addWidget(self.inhibit_charge_spinbox)
+        self.verticalLayout_3.addLayout(self.horizontalLayout_8)
+        self.label_28 = QtGui.QLabel(self.groupBox)
+        self.label_28.setWordWrap(True)
+        self.label_28.setObjectName(_fromUtf8("label_28"))
+        self.verticalLayout_3.addWidget(self.label_28)
         self.verticalLayout.addWidget(self.groupBox)
         spacerItem = QtGui.QSpacerItem(20, 40, QtGui.QSizePolicy.Minimum, QtGui.QSizePolicy.Expanding)
         self.verticalLayout.addItem(spacerItem)
@@ -319,6 +350,8 @@ class Ui_MainWindow(object):
         QtCore.QObject.connect(self.stop_charge_slider, QtCore.SIGNAL(_fromUtf8("valueChanged(int)")), self.stop_charge_spinbox.setValue)
         QtCore.QObject.connect(self.start_charge_spinbox, QtCore.SIGNAL(_fromUtf8("valueChanged(int)")), self.start_charge_slider.setValue)
         QtCore.QObject.connect(self.stop_charge_spinbox, QtCore.SIGNAL(_fromUtf8("valueChanged(int)")), self.stop_charge_slider.setValue)
+        QtCore.QObject.connect(self.inhibit_charge_slider, QtCore.SIGNAL(_fromUtf8("valueChanged(int)")), self.inhibit_charge_spinbox.setValue)
+        QtCore.QObject.connect(self.inhibit_charge_spinbox, QtCore.SIGNAL(_fromUtf8("valueChanged(int)")), self.inhibit_charge_slider.setValue)
         QtCore.QMetaObject.connectSlotsByName(MainWindow)
 
     def retranslateUi(self, MainWindow):
@@ -374,9 +407,12 @@ class Ui_MainWindow(object):
         self.barcoding.setText(_translate("MainWindow", "N/A", None))
         self.voltage.setText(_translate("MainWindow", "N/A", None))
         self.temperature.setText(_translate("MainWindow", "N/A", None))
-        self.groupBox.setTitle(_translate("MainWindow", "Charging Thresholds", None))
+        self.groupBox.setTitle(_translate("MainWindow", "Charging Options", None))
         self.label_49.setText(_translate("MainWindow", "Start Charge Thresh:", None))
         self.label_50.setText(_translate("MainWindow", "Stop Charge Thresh:", None))
+        self.label_26.setText(_translate("MainWindow", "<html><head/><body><p><span style=\" font-family:\'sans-serif\'; font-size:8pt; font-weight:600; color:#252525; background-color:#d5f0d0;\">Hint:</span><span style=\" font-family:\'sans-serif\'; font-size:8pt; color:#000000; background-color:#d5f0d0;\"/><span style=\" font-family:\'sans-serif\'; font-size:8pt; color:#252525;\">Battery charging thresholds can be used to keep Li-Ion and Li-Polymer batteries partially charged, in order to </span><a href=\"http://www.thinkwiki.org/wiki/Maintenance#Battery_treatment\"><span style=\" font-size:8pt; text-decoration: underline; color:#0000ff;\">increase their lifetime</span></a><span style=\" font-family:\'sans-serif\'; font-size:8pt; color:#252525;\">.</span></p></body></html>", None))
+        self.label_27.setText(_translate("MainWindow", "Inhibit Charge (min.): ", None))
+        self.label_28.setText(_translate("MainWindow", "<html><head/><body><p><span style=\" font-family:\'sans-serif\'; font-size:8pt; font-weight:600; color:#252525; background-color:#d5f0d0;\">Hint:</span><span style=\" font-family:\'sans-serif\'; font-size:8pt; color:#252525;\">Charge inhibiting can be used to reduce the power draw of the laptop, in order to use an under-spec power supply that can\'t handle the combined power draw of running and charging. It can also be used to control which battery is charged when </span><a href=\"http://www.thinkwiki.org/wiki/How_to_use_UltraBay_batteries\"><span style=\" font-size:8pt; text-decoration: underline; color:#0000ff;\">using an Ultrabay battery</span></a><span style=\" font-family:\'sans-serif\'; font-size:8pt; color:#252525;\">.</span></p></body></html>", None))
         self.btn_reload.setText(_translate("MainWindow", "Reload Settings", None))
         self.btn_write.setText(_translate("MainWindow", "Write Settings", None))
 

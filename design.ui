@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>374</width>
-    <height>526</height>
+    <width>421</width>
+    <height>565</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -561,7 +561,7 @@
     <item>
      <widget class="QGroupBox" name="groupBox">
       <property name="title">
-       <string>Charging Thresholds</string>
+       <string>Charging Options</string>
       </property>
       <layout class="QVBoxLayout" name="verticalLayout_3">
        <property name="leftMargin">
@@ -649,6 +649,66 @@
           </widget>
          </item>
         </layout>
+       </item>
+       <item>
+        <widget class="QLabel" name="label_26">
+         <property name="font">
+          <font>
+           <pointsize>10</pointsize>
+          </font>
+         </property>
+         <property name="text">
+          <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-family:'sans-serif'; font-size:8pt; font-weight:600; color:#252525; background-color:#d5f0d0;&quot;&gt;Hint:&lt;/span&gt;&lt;span style=&quot; font-family:'sans-serif'; font-size:8pt; color:#000000; background-color:#d5f0d0;&quot;/&gt;&lt;span style=&quot; font-family:'sans-serif'; font-size:8pt; color:#252525;&quot;&gt;Battery charging thresholds can be used to keep Li-Ion and Li-Polymer batteries partially charged, in order to &lt;/span&gt;&lt;a href=&quot;http://www.thinkwiki.org/wiki/Maintenance#Battery_treatment&quot;&gt;&lt;span style=&quot; font-size:8pt; text-decoration: underline; color:#0000ff;&quot;&gt;increase their lifetime&lt;/span&gt;&lt;/a&gt;&lt;span style=&quot; font-family:'sans-serif'; font-size:8pt; color:#252525;&quot;&gt;.&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+         </property>
+         <property name="wordWrap">
+          <bool>true</bool>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="Line" name="line_3">
+         <property name="orientation">
+          <enum>Qt::Horizontal</enum>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <layout class="QHBoxLayout" name="horizontalLayout_8">
+         <item>
+          <widget class="QLabel" name="label_27">
+           <property name="text">
+            <string>Inhibit Charge (min.): </string>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QSlider" name="inhibit_charge_slider">
+           <property name="maximum">
+            <number>120</number>
+           </property>
+           <property name="orientation">
+            <enum>Qt::Horizontal</enum>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QSpinBox" name="inhibit_charge_spinbox">
+           <property name="maximum">
+            <number>120</number>
+           </property>
+          </widget>
+         </item>
+        </layout>
+       </item>
+       <item>
+        <widget class="QLabel" name="label_28">
+         <property name="text">
+          <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-family:'sans-serif'; font-size:8pt; font-weight:600; color:#252525; background-color:#d5f0d0;&quot;&gt;Hint:&lt;/span&gt;&lt;span style=&quot; font-family:'sans-serif'; font-size:8pt; color:#252525;&quot;&gt;Charge inhibiting can be used to reduce the power draw of the laptop, in order to use an under-spec power supply that can't handle the combined power draw of running and charging. It can also be used to control which battery is charged when &lt;/span&gt;&lt;a href=&quot;http://www.thinkwiki.org/wiki/How_to_use_UltraBay_batteries&quot;&gt;&lt;span style=&quot; font-size:8pt; text-decoration: underline; color:#0000ff;&quot;&gt;using an Ultrabay battery&lt;/span&gt;&lt;/a&gt;&lt;span style=&quot; font-family:'sans-serif'; font-size:8pt; color:#252525;&quot;&gt;.&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+         </property>
+         <property name="wordWrap">
+          <bool>true</bool>
+         </property>
+        </widget>
        </item>
       </layout>
      </widget>
@@ -757,6 +817,38 @@
     <hint type="destinationlabel">
      <x>224</x>
      <y>452</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>inhibit_charge_slider</sender>
+   <signal>valueChanged(int)</signal>
+   <receiver>inhibit_charge_spinbox</receiver>
+   <slot>setValue(int)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>252</x>
+     <y>438</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>390</x>
+     <y>439</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>inhibit_charge_spinbox</sender>
+   <signal>valueChanged(int)</signal>
+   <receiver>inhibit_charge_slider</receiver>
+   <slot>setValue(int)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>390</x>
+     <y>439</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>252</x>
+     <y>438</y>
     </hint>
    </hints>
   </connection>
