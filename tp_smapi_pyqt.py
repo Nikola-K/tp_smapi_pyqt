@@ -110,7 +110,6 @@ class TPSmapiGUI(QtGui.QMainWindow, design.Ui_MainWindow):
         new_start = int(self.start_charge_slider.value())
         new_stop = int(self.stop_charge_slider.value())
         new_inhibit = int(self.inhibit_charge_slider.value())
-        print new_start, new_stop, new_inhibit
 
         if new_start != start_threshold:
             if not self._set_value("start_charge_thresh", str(new_start)):
