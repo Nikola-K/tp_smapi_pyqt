@@ -61,14 +61,19 @@ class TPSmapiGUI(QtGui.QMainWindow, design.Ui_MainWindow):
             "temperature":self.temperature # in milli-Celsius
         }
 
-        self.populate_values()
-        self.get_charge_thresholds()
+        self.get_battery_values()
+        self.get_charge_values()
         self.batteryComboBox.currentIndexChanged.connect(self.__change_battery)
+        self.btn_reload.clicked.connect(self._reload_values)
+
+    def _reload_values(self):
+        self.get_battery_values()
+        self.get_charge_values()
 
     def __change_battery(self):
         self.current_battery = str(self.batteryComboBox.currentText())
-        self.populate_values()
-        self.get_charge_thresholds()
+        self.get_battery_values()
+        self.get_charge_values()
 
 
     def _get_value(self, value_key, default_return = "N/a"):
@@ -80,14 +85,15 @@ class TPSmapiGUI(QtGui.QMainWindow, design.Ui_MainWindow):
             return default_return
 
     # noinspection PyTypeChecker
-    def get_charge_thresholds(self):
+    def get_charge_values(self):
         start_threshold = int(self._get_value("start_charge_thresh", 0))
         stop_threshold = int(self._get_value("stop_charge_thresh", 0))
         inhibit_charge_min = int(self._get_value("inhibit_charge_minutes", 0))
         self.start_charge_slider.setValue(start_threshold)
         self.stop_charge_slider.setValue(stop_threshold)
+        self.inhibit_charge_slider.setValue(inhibit_charge_min)
 
-    def populate_values(self):
+    def get_battery_values(self):
         for value_key, value_label in self.values.items():
             value = self._get_value(value_key)
             if value == "0":
