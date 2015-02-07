@@ -35,30 +35,30 @@ class TPSmapiGUI(QtGui.QMainWindow, design.Ui_MainWindow):
         self.setupUi(self)
         self.current_battery = "BAT0"
         self.values = {
-            "installed":self.installed,
-            "state":self.state,
-            "../ac_connected":self.ac_connected,
-            "cycle_count":self.cycle_count,
-            "current_now":self.current_now, # instantaneous current
-            "current_avg":self.current_avg, # last minute average
-            "power_now":self.power_now,   # instantaneous power
-            "power_avg":self.power_avg,   # last minute average
-            "last_full_capacity":self.last_full_capacity,
-            "remaining_percent":self.remaining_percent,
-            "remaining_running_time":self.remaining_running_time,
-            "remaining_charging_time":self.remaining_charge_time,
-            "remaining_capacity":self.remaining_capacity,
-            "design_capacity":self.design_capacity,
-            "voltage":self.voltage,
-            "design_voltage":self.design_voltage,
-            "manufacturer":self.manufacturer,
-            "model":self.model,
-            "barcoding":self.barcoding,
-            "chemistry":self.chemistry,
-            "serial":self.serial,
-            "manufacture_date":self.manufacturing_date,
-            "first_use_date":self.first_use_date,
-            "temperature":self.temperature # in milli-Celsius
+            "installed": self.installed,
+            "state": self.state,
+            "../ac_connected": self.ac_connected,
+            "cycle_count": self.cycle_count,
+            "current_now": self.current_now,  # instantaneous current
+            "current_avg": self.current_avg,  # last minute average
+            "power_now": self.power_now,  # instantaneous power
+            "power_avg": self.power_avg,  # last minute average
+            "last_full_capacity": self.last_full_capacity,
+            "remaining_percent": self.remaining_percent,
+            "remaining_running_time": self.remaining_running_time,
+            "remaining_charging_time": self.remaining_charge_time,
+            "remaining_capacity": self.remaining_capacity,
+            "design_capacity": self.design_capacity,
+            "voltage": self.voltage,
+            "design_voltage": self.design_voltage,
+            "manufacturer": self.manufacturer,
+            "model": self.model,
+            "barcoding": self.barcoding,
+            "chemistry": self.chemistry,
+            "serial": self.serial,
+            "manufacture_date": self.manufacturing_date,
+            "first_use_date": self.first_use_date,
+            "temperature": self.temperature  # in milli-Celsius
         }
 
         self.get_battery_values()
@@ -76,10 +76,10 @@ class TPSmapiGUI(QtGui.QMainWindow, design.Ui_MainWindow):
         self.get_charge_values()
 
 
-    def _get_value(self, value_key, default_return = "N/a"):
+    def _get_value(self, value_key, default_return="N/a"):
         base = "/sys/devices/platform/smapi/{}/".format(self.current_battery)
         try:
-            with open(base+value_key) as input_file:
+            with open(base + value_key) as input_file:
                 return input_file.read().rstrip()
         except:
             return default_return
@@ -101,6 +101,7 @@ class TPSmapiGUI(QtGui.QMainWindow, design.Ui_MainWindow):
             elif value == "1":
                 value = "True"
             value_label.setText(value)
+
 
 def main():
     app = QtGui.QApplication(sys.argv)
